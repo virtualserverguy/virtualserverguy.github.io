@@ -1,0 +1,31 @@
+---
+layout: post
+title: netstat for ESXi
+date: 2012-01-31 19:18:55.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- VMware vSphere
+tags:
+- cli
+- esxi
+- vsphere
+meta:
+  _publicize_pending: '1'
+  restapi_import_id: 592dea9c060ad
+  original_post_id: '30'
+  _wp_old_slug: '30'
+author:
+  login: tomralphthevsg
+  email: tom.ralph@thevsg.co
+  display_name: TheVSG
+  first_name: ''
+  last_name: ''
+---
+<p>With the removal of the service console with vSphere 5, in the form of ESXi, netstat went by the way side. &nbsp;The way to get that information is by executing this on the console. &nbsp;Either in tech support mode (SSH) or at the console.</p>
+<blockquote>
+<p>esxcli network ip connection list</p>
+</blockquote>

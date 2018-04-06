@@ -1,0 +1,34 @@
+---
+layout: post
+title: Symform Security Analysis
+date: 2012-12-19 20:01:18.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta:
+  _publicize_pending: '1'
+  restapi_import_id: 592dea9c060ad
+  original_post_id: '47'
+  _wp_old_slug: '47'
+author:
+  login: tomralphthevsg
+  email: tom.ralph@thevsg.co
+  display_name: TheVSG
+  first_name: ''
+  last_name: ''
+---
+<p>This morning on twitter I was asked if Symform "Secure Online Backup" was as secure as SpiderOak (my favorite online storage/backup solution). Here is my analysis from reading Symform's publically facing documents.</p>
+<h2 id="howitworks">How it works:</h2>
+<p>According to Symform's website, your data is processed at the folder level. Meaning that all files in a folder are encrypted together. This does give the benefit of being able to de-duplicate the files inside that folder, it is not clear if this is at the block or file level though. If done at the block level this would be analogous to compression, if done at the file level I would image not much savings in space since it is uncommon for duplicate files in the same folder.</p>
+<p>These files are encrypted with AES256 (good job there), but what generates this key? Since there would be a separate key per folder/container it would be near impossible for the end user to manage these keys. That means the Symform Cloud Control is generating and managing these keys for you the end user. (This is confirmed by their own documentation)</p>
+<p>After your files are encrypted (in 64MB folder chunks), they are then broken into 1MB chunks. Parity fragments are then generated out of those 1MB chunks, 32 parity fragments to be exact. Those parity chunks are then sent out to the Symform Global Cloud Storage Network, and distributed to 96 devices. </p>
+<h2 id="analysis">Analysis:</h2>
+<p>That seems fine right? Your data is spread among 96 random devices on the internet, encrypted and secure.</p>
+<p>Well that is the problem, who controls the decryption/encryption keys? Symform does.<br />
+Who controls where your data is stored on this 'Global Cloud Storage Network? Symform does.</p>
+<p>From a stand point of Trust No One, Symform fails the test. A hacker can still get your AES keys, and the location of those blobs on the internet. A government agency can still subpoena for your data, and have access to the decrypted data. </p>
+<p>While it looks like a neat technology, SpiderOak still wins in my opinion, since I control the encryption keys and where my data resides (Amazon S3 storage).</p>

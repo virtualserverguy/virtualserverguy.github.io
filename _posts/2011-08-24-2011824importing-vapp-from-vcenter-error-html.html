@@ -1,0 +1,33 @@
+---
+layout: post
+title: Importing vApp from vCenter Error
+date: 2011-08-24 15:02:43.000000000 -06:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- VMware vSphere
+tags:
+- cisco nexus
+- vcloud
+meta:
+  _publicize_pending: '1'
+  restapi_import_id: 592dea9c060ad
+  original_post_id: '24'
+  _wp_old_slug: '24'
+author:
+  login: tomralphthevsg
+  email: tom.ralph@thevsg.co
+  display_name: TheVSG
+  first_name: ''
+  last_name: ''
+---
+<p>When importing a VM or vApp from vCenter into vCloud you may see an error like this:</p>
+<blockquote>
+<p>&nbsp; &nbsp; A specified parameter was not correct.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;spec.deviceChange.device.port.switchUuid</p>
+</blockquote>
+<p>This can happen when comign from a Cisco Nexus 1000v Portgroup, to solve this either remove the network adapter for importing into the cloud, or move the network card to a portgroup that is not a Nexus 1000v Portgroup.</p>
+<p>If you are using a dVS and see this error move the NIC to a standard vSwitch or delete the NIC and re-add it once it is in the cloud.</p>

@@ -1,0 +1,121 @@
+---
+layout: post
+title: vSphere 5 vRam Licensing Changes
+date: 2011-08-03 21:00:09.000000000 -06:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- VMware vSphere
+tags:
+- vmware
+- vsphere
+meta:
+  _publicize_pending: '1'
+  restapi_import_id: 592dea9c060ad
+  original_post_id: '22'
+  _wp_old_slug: '22'
+author:
+  login: tomralphthevsg
+  email: tom.ralph@thevsg.co
+  display_name: TheVSG
+  first_name: ''
+  last_name: ''
+---
+<p>When VMware released the vRam pricing models and limits last week there was quite an uproar over the limitations being set to low. &nbsp;It appears that VMware was listening and has responded with a hefty increase in vRam allocations.</p>
+<table cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="td1" valign="top">
+<table class="t1" cellspacing="0" cellpadding="0" width="637.0">
+<tbody>
+<tr>
+<td class="td2" valign="bottom">
+<p class="p2"><strong>vSphere edition</strong></p>
+</td>
+<td class="td3" valign="bottom">
+<p class="p2"><strong>Previous vRAM entitlement</strong></p>
+</td>
+<td class="td3" valign="bottom">
+<p class="p2"><strong>New vRAM entitlement</strong></p>
+</td>
+</tr>
+<tr>
+<td class="td4" valign="top">
+<p class="p2"><strong>vSphere Enterprise+</strong></p>
+</td>
+<td class="td5" valign="top">
+<p class="p2">48 GB</p>
+</td>
+<td class="td5" valign="top">
+<p class="p2">96 GB</p>
+</td>
+</tr>
+<tr>
+<td class="td6" valign="top">
+<p class="p2"><strong>vSphere Enterprise</strong></p>
+</td>
+<td class="td7" valign="top">
+<p class="p2">32 GB</p>
+</td>
+<td class="td7" valign="top">
+<p class="p2">64 GB</p>
+</td>
+</tr>
+<tr>
+<td class="td4" valign="top">
+<p class="p2"><strong>vSphere Standard</strong></p>
+</td>
+<td class="td5" valign="top">
+<p class="p2">24 GB</p>
+</td>
+<td class="td5" valign="top">
+<p class="p2">32 GB</p>
+</td>
+</tr>
+<tr>
+<td class="td6" valign="top">
+<p class="p2"><strong>vSphere Essentials+</strong></p>
+</td>
+<td class="td7" valign="top">
+<p class="p2">24 GB</p>
+</td>
+<td class="td7" valign="top">
+<p class="p2">32 GB</p>
+</td>
+</tr>
+<tr>
+<td class="td4" valign="top">
+<p class="p2"><strong>vSphere Essentials</strong></p>
+</td>
+<td class="td5" valign="top">
+<p class="p2">24 GB</p>
+</td>
+<td class="td5" valign="top">
+<p class="p2">32 GB</p>
+</td>
+</tr>
+<tr>
+<td class="td6" valign="top">
+<p class="p2"><strong>Free vSphere Hypervisor</strong></p>
+</td>
+<td class="td7" valign="top">
+<p class="p2">8 GB</p>
+</td>
+<td class="td7" valign="top">
+<p class="p2">32 GB*</p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>That is nearly double the entitlements.</p>
+<p>Also changing is how the usage is calculated for a high water mark (think bursting for a day) to a rolling 12 month average!</p>
+<p>Finally the last news and some major news at that, is that a single VM can only consume 96GB of vRam, no matter how you set the VM up! &nbsp;(i.e. give a VM 1TB of RAM but only have 96GB count against the vRam pool!)</p>
+<p><span style="font-size:small;"><br /></span></p>

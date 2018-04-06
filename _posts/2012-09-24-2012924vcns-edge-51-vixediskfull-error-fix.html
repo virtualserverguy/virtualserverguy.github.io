@@ -1,0 +1,36 @@
+---
+layout: post
+title: vCNS Edge 5.1 VIX_E_DISK_FULL ERROR Fix
+date: 2012-09-24 16:23:08.000000000 -06:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta:
+  _publicize_pending: '1'
+  restapi_import_id: 592dea9c060ad
+  original_post_id: '43'
+  _wp_old_slug: '43'
+author:
+  login: tomralphthevsg
+  email: tom.ralph@thevsg.co
+  display_name: TheVSG
+  first_name: ''
+  last_name: ''
+---
+<p>VMware this morning released a KB article and a fix for the Edge devices filling up on disk space. While it did not kill the edge or cause an outage, it did stop you from being able to make changes to the Edge's configuration.</p>
+<p>The official fix will be released on this site: https://my.vmware.com/web/vmware/info/slug/security<em>products/vmware</em>vcloud<em>networking</em>and<em>security/5</em>1</p>
+<p>The upgrade/patch will require the standard vCloud Network Security (vShield) upgrade process where the Edge device will need to be replaced with the new code. (READ: Possible outage of network for a few moments while the Edge is swapped)</p>
+<p>How do you know if you have this problem?</p>
+<p>In vCloud Director, attempting a reconfig fails with this error: </p>
+<blockquote>
+<p>VIX<em>E</em>DISK_FULL </p>
+</blockquote>
+<p>In vCloud Director, when looking at Edge Gateways, you receive this error:</p>
+<blockquote>
+<p>Edge VM backing the edge gateway is unreachable</p>
+</blockquote>
+<p>Just remember, when this happens it is not causing an outage or a network failure. The edge is basically running 'headless' at that time, and will not accept any ruleset changes.</p>

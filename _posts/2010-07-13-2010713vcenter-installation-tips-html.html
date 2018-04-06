@@ -1,0 +1,29 @@
+---
+layout: post
+title: vCenter Installation Tips
+date: 2010-07-13 13:01:49.000000000 -06:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- VMware vSphere
+tags: []
+meta:
+  _publicize_pending: '1'
+  restapi_import_id: 592dea9c060ad
+  original_post_id: '12'
+  _wp_old_slug: '12'
+author:
+  login: tomralphthevsg
+  email: tom.ralph@thevsg.co
+  display_name: TheVSG
+  first_name: ''
+  last_name: ''
+---
+<p>Since the vCenter now requires a 64 bit operating system to install, the DSN must be upgraded as well to support the 64bit application.  Currently vCenter 4.0 and older all required a 32 bit DSN.  To change to the proper DSN you will need to remove the old one from the 32-bit DSN application and create a new DSN.</p>
+<p>1) Remove the old DSN if it exists from: %windir%SysWoW64ODBCAD32.exe</p>
+<p>2) Install the 64 bit SQL native client from: <a title="SQL Native Client for 2008 R1 and R2" href="http://go.microsoft.com/fwlink/?LinkId=123718&amp;clcid=0x409" target="_blank">http://go.microsoft.com/fwlink/?LinkId=123718&amp;clcid=0x409</a></p>
+<p>3) Create a new DSN from the utility in Administrative Tools or here: %windir%system32ODBCAD32.exe (this is the 64 bit version)</p>
+<p>4) Install vCenter and get rocking and rolling.</p>

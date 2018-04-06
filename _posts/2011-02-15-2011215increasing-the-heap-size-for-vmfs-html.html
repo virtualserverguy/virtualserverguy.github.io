@@ -1,0 +1,43 @@
+---
+layout: post
+title: Increasing the heap size for VMFS
+date: 2011-02-15 12:21:14.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Microsoft Hyper-V
+tags: []
+meta:
+  _publicize_pending: '1'
+  restapi_import_id: 592dea9c060ad
+  original_post_id: '14'
+  _wp_old_slug: '14'
+author:
+  login: tomralphthevsg
+  email: tom.ralph@thevsg.co
+  display_name: TheVSG
+  first_name: ''
+  last_name: ''
+---
+<p>ESX 3.0 thru ESX 4.0 limit the heap size for VMFS to 16MB which allows for just 4TB of VMFS files to be open at a time.  Once this threshold is crossed the ESX host start to behave eradically, possible crashing the VMs that were powered on at the time.  To avoid this problem you can increase the heap size to 128MB which will allow for 32TB of storage open on a single ESX host.</p>
+<p>The vmKernel.log will display the following if your host is getting close to the limitation:<br />
+<blockquote>WARNING: Heap: 1370: Heap_Align(vmfs3, 4096/4096 bytes, 4 align) failed. caller: 0x8fdbd0<br />WARNING: Heap: 1266: Heap vmfs3: Maximum allowed growth (24) too small for size (8192)</p></blockquote>
+<p>To correct this problem:
+<ol>	
+<li>Login to vCenter or use the VI client to connect directly to the ESX host in question</li>
+<p>	
+<li>Click on the Configuration tab</li>
+<p>	
+<li>Click Advanced Settings</li>
+<p>	
+<li>Find and select VMFS3</li>
+<p>	
+<li>Update the VMFS2.MaxHeapSizeMB to 128</li>
+<p>	
+<li>Reboot the ESX host</li>
+<p></ol>
+<p>ESX 4.1's default is 80MB which will allow for 20TB to be open at once, so it is less likely to run into this issue.</p>
+<p>Update: There is a VMware KB on this problem here: <a href="http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&amp;cmd=displayKC&amp;externalId=1004424">http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&amp;cmd=displayKC&amp;externalId=1004424</a></p>

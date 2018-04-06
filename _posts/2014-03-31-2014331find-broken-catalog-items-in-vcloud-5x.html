@@ -1,0 +1,31 @@
+---
+layout: post
+title: Find Broken Catalog Items in vCloud 5.x
+date: 2014-03-31 20:00:00.000000000 -06:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- VMware vCloud
+tags:
+- powershell
+- vcloud
+meta:
+  _publicize_pending: '1'
+  restapi_import_id: 592dea9c060ad
+  original_post_id: '60'
+  _wp_old_slug: '60'
+author:
+  login: tomralphthevsg
+  email: tom.ralph@thevsg.co
+  display_name: TheVSG
+  first_name: ''
+  last_name: ''
+---
+<p>Sometimes when uploading content into vCloud there is a chance that the content can be broken. This can cause programs to have errors. To find these items, run the following in PowerShell as the a 'system administrator'.</p>
+<blockquote>
+<p>search-cloud -QueryType AdminCatalogItem | Where-Object { $_.Status -eq "Unknown" } </p>
+</blockquote>
+<p>You can now remove them utilizing the API or vCO and the 'Remove Catalog Item' workflow.</p>

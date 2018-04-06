@@ -1,0 +1,29 @@
+---
+layout: post
+title: Enabling SAML Providers in vCloud 5.1
+date: 2013-02-23 03:09:00.000000000 -07:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- VMware vCloud
+tags:
+- security
+- vcloud
+meta:
+  _publicize_pending: '1'
+  restapi_import_id: 592dea9c060ad
+  original_post_id: '53'
+  _wp_old_slug: '53'
+author:
+  login: tomralphthevsg
+  email: tom.ralph@thevsg.co
+  display_name: TheVSG
+  first_name: ''
+  last_name: ''
+---
+<p>As a system or organization administrator head to the 'Administration' page, and then the federation tab. Paste or upload the SAML configuration XML. Ensure the certificate at the bottom of the page is recent, if not click re-generate certificate. It will produce a certificate for 1 year.</p>
+<p>After the certificate is re-newed enter this URL in to the web browser: cloud/org/[orgName]/saml/metadata/alias/vcd ; save the XML file on that page. This is the file you will need to provide the SAML or 3rd party authentication service with in order to authenticate you.</p>
+<p>Now you have SSO or SAML or 3rd authentication, enabled on your organization. Once configured/enabled the Org login page will now use the SAML provider, meaning any local users will be locked out.</p>

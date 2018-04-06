@@ -1,0 +1,35 @@
+---
+layout: post
+title: Detecting and Removing Invalid vApps
+date: 2014-04-09 20:00:00.000000000 -06:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- VMware vCloud
+tags:
+- powershell
+- vcloud
+meta:
+  _publicize_pending: '1'
+  restapi_import_id: 592dea9c060ad
+  original_post_id: '61'
+  _wp_old_slug: '61'
+author:
+  login: tomralphthevsg
+  email: tom.ralph@thevsg.co
+  display_name: TheVSG
+  first_name: ''
+  last_name: ''
+---
+<p>After you run vCloud for a while, heck run any management product for a while, and you will have left overs, hung items, or even corrupt vApps.</p>
+<p>With vCloud Director you can run the below to find those items and remove them.</p>
+<blockquote>
+<p>$badvapp = Search-Cloud -QueryType AdminVapp | Where-Object { $_.Status -eq “UNRESOLVED" } </p>
+<p>foreach ( $id in $badvapp ) {</p>
+<p>Get-CIVApp -Id $id.id | Remove-CIVApp</p>
+<p>} </p>
+</blockquote>
+<p>This probably wont remove everything, those items that are left, generally can only be removed via editing the database (I would not recommend that).</p>

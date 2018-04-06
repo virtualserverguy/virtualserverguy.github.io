@@ -1,0 +1,41 @@
+---
+layout: post
+title: vCenter 4.1 ADAM_VMwareVCMSDS Error
+date: 2010-09-21 15:55:46.000000000 -06:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- VMware vSphere
+tags: []
+meta:
+  _publicize_pending: '1'
+  restapi_import_id: 592dea9c060ad
+  original_post_id: '20'
+  _wp_old_slug: '20'
+author:
+  login: tomralphthevsg
+  email: tom.ralph@thevsg.co
+  display_name: TheVSG
+  first_name: ''
+  last_name: ''
+---
+<div id="_mcePaste">Recently after upgrading to vCenter for a few customers the following started to appear in their Windows Event logs:</div>
+<p>
+<div id="_mcePaste" style="padding-left:30px;">Active Directory Web Services encountered an error while reading the settings for the specified Active Directory Lightweight Directory Services instance.  Active Directory Web Services will retry this operation periodically.  In the meantime, this instance will be ignored.  Instance name: ADAM_VMwareVCMSDS</div>
+<p>
+<div>To correct this you need to add the following to the registry:</div>
+<p>
+<blockquote>
+<div id="_mcePaste">Key: HKLMSystemCurrentControlSetServicesVMwareVCMSDSParameters</div>
+<p>
+<div id="_mcePaste">Value: Port SSL</div>
+<p>
+<div id="_mcePaste">Type: REG_DWORD</div>
+<p>
+<div id="_mcePaste">Data: 636</div>
+</blockquote>
+<p>
+<div id="_mcePaste">Restart the ADAM instance and the errors should stop.  (Unless of course you need something other than the default ports)</div>

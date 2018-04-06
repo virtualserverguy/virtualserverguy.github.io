@@ -1,0 +1,35 @@
+---
+layout: post
+title: Query vCloud Director for Storage Profile Usage
+date: 2014-04-01 20:02:00.000000000 -06:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- VMware vCloud
+tags:
+- powershell
+- vcloud
+meta:
+  _publicize_pending: '1'
+  restapi_import_id: 592dea9c060ad
+  original_post_id: '62'
+  _wp_old_slug: '62'
+author:
+  login: tomralphthevsg
+  email: tom.ralph@thevsg.co
+  display_name: TheVSG
+  first_name: ''
+  last_name: ''
+---
+<p>Often times an organization will have multiple Storage Profiles, different class fo storage, etc. The simple command of:</p>
+<blockquote>
+<p>Get-OrgVDC</p>
+</blockquote>
+<p>Returns a summary or cummulative view of the storage profile usage. To get the actual usage for each profile, execute this command:</p>
+<blockquote>
+<p>$OrgVdc = get-orgvdc (Org VDC Name)</p>
+<p>search-cloud -querytype AdminOrgVdcStorageProfile | where { $_.VdcName -eq $orgvdc } | get-ciview</p>
+</blockquote>
